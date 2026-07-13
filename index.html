@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#10265f">
+  <title>Engagement Invitation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root { --blue:#10265f; --gold:#c89a3d; --gold-light:#e7c778; --cream:#fffaf0; }
+    * { box-sizing:border-box; }
+    body {
+      margin:0;
+      min-height:100svh;
+      display:grid;
+      place-items:center;
+      padding:2rem;
+      font-family:"Montserrat",sans-serif;
+      color:white;
+      text-align:center;
+      background:
+        linear-gradient(rgba(9,24,66,.88),rgba(13,34,82,.95)),
+        radial-gradient(circle at 50% 15%,#315294,transparent 46%),
+        var(--blue);
+    }
+    main {
+      width:min(850px,100%);
+      padding:clamp(2rem,7vw,5rem);
+      border:1px solid rgba(231,199,120,.55);
+      outline:1px solid rgba(255,255,255,.13);
+      outline-offset:-12px;
+    }
+    .eyebrow {
+      color:var(--gold-light);
+      text-transform:uppercase;
+      letter-spacing:.25em;
+      font-size:.72rem;
+    }
+    h1 {
+      margin:.5rem 0 1rem;
+      font-family:"Cormorant Garamond",serif;
+      font-size:clamp(3rem,9vw,6.5rem);
+      line-height:.95;
+    }
+    .intro { color:rgba(255,255,255,.76); }
+    .versions {
+      margin-top:2.5rem;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:1rem;
+    }
+    .version-card {
+      padding:1.6rem 1rem;
+      color:white;
+      text-decoration:none;
+      border:1px solid rgba(231,199,120,.45);
+      background:rgba(255,255,255,.05);
+      transition:.25s ease;
+    }
+    .version-card:hover {
+      transform:translateY(-4px);
+      background:rgba(231,199,120,.12);
+    }
+    .version-card strong {
+      display:block;
+      color:var(--gold-light);
+      font-family:"Cormorant Garamond",serif;
+      font-size:2rem;
+    }
+    .version-card span {
+      font-size:.72rem;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+    }
+    .routing-note {
+      margin-top:2rem;
+      color:rgba(255,255,255,.58);
+      font-size:.74rem;
+      line-height:1.8;
+    }
+    code { color:var(--gold-light); }
+    @media(max-width:650px) { .versions { grid-template-columns:1fr; } }
+  </style>
+  <script>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      let requested = (params.get("version") || params.get("v") || "").toLowerCase();
+
+      if (!requested && window.location.hash) {
+        requested = window.location.hash.slice(1).toLowerCase();
+      }
+
+      const aliases = {
+        "1": "v1", "v1": "v1",
+        "2": "v2", "v2": "v2",
+        "3": "v3", "v3": "v3"
+      };
+
+      const destination = aliases[requested];
+      if (destination) {
+        window.location.replace("./" + destination + "/");
+      }
+    })();
+  </script>
+</head>
+<body>
+  <main>
+    <p class="eyebrow">Choose an invitation design</p>
+    <h1>Our Engagement</h1>
+    <p class="intro">Open a version below, or share a URL that redirects guests directly to a selected design.</p>
+
+    <div class="versions">
+      <a class="version-card" href="./v1/"><strong>V1</strong><span>Current invitation</span></a>
+      <a class="version-card" href="./v2/"><strong>V2</strong><span>Second design</span></a>
+      <a class="version-card" href="./v3/"><strong>V3</strong><span>Third design</span></a>
+    </div>
+
+    <p class="routing-note">
+      Direct routing examples:<br>
+      <code>?version=v1</code> · <code>?v=2</code> · <code>#v3</code>
+    </p>
+  </main>
+</body>
+</html>
