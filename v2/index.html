@@ -1,65 +1,411 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#10265f">
-  <title>Version Two</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/style.css">
-  <style>
-    .version-placeholder {
-      min-height: 100svh;
-      display: grid;
-      place-items: center;
-      padding: 2rem;
-      text-align: center;
-      color: white;
-      background:
-        linear-gradient(rgba(9,24,66,.88), rgba(13,34,82,.95)),
-        radial-gradient(circle at 50% 20%, #315294, transparent 46%),
-        #10265f;
-    }
-    .version-placeholder article {
-      width: min(720px, 100%);
-      padding: clamp(2.5rem, 8vw, 5rem);
-      border: 1px solid rgba(231,199,120,.55);
-      outline: 1px solid rgba(255,255,255,.12);
-      outline-offset: -12px;
-    }
-    .version-placeholder h1 {
-      margin: .4rem 0 1rem;
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(3rem, 8vw, 6rem);
-      line-height: .95;
-    }
-    .version-placeholder p {
-      color: rgba(255,255,255,.76);
-    }
-    .version-nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: .8rem;
-      margin-top: 2rem;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Engagement Celebration | Sandeep & Akhila | Anand & Yamini</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Cinzel:wght@500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#152449;
+    --navy-deep:#0e1a38;
+    --gold:#c9a24a;
+    --gold-light:#e6c878;
+    --gold-dark:#9a7a2e;
+    --cream:#f8f0dd;
+    --pink:#e39aa9;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    padding:40px 16px;
+    background:radial-gradient(circle at center, #1b2c56 0%, var(--navy-deep) 70%);
+    font-family:'Cormorant Garamond', serif;
+    display:flex;
+    justify-content:center;
+  }
+  .frame{
+    width:100%;
+    max-width:640px;
+    background:var(--navy);
+    border-radius:28px 28px 16px 16px;
+    padding:14px;
+    box-shadow:0 30px 80px rgba(0,0,0,0.55);
+    position:relative;
+  }
+  .card{
+    position:relative;
+    background:
+      radial-gradient(circle at 50% 8%, rgba(201,162,74,0.10), transparent 40%),
+      var(--cream);
+    border:2px solid var(--gold);
+    border-radius:22px 22px 12px 12px;
+    padding:56px 34px 40px;
+    overflow:hidden;
+    text-align:center;
+  }
+  .card::before{
+    content:"";
+    position:absolute;
+    inset:10px;
+    border:1.5px solid var(--gold-dark);
+    border-radius:16px 16px 8px 8px;
+    pointer-events:none;
+  }
+  /* mandala watermark */
+  .mandala{
+    position:absolute;
+    top:50%;
+    width:280px;
+    height:280px;
+    transform:translateY(-50%);
+    opacity:0.07;
+    pointer-events:none;
+  }
+  .mandala.left{ left:-90px; }
+  .mandala.right{ right:-90px; }
+
+  /* corner florals */
+  .floral{
+    position:absolute;
+    width:120px;
+    height:120px;
+    opacity:0.95;
+    pointer-events:none;
+  }
+  .floral.tl{ top:-14px; left:-14px; }
+  .floral.tr{ top:-14px; right:-14px; transform:scaleX(-1); }
+  .floral.bl{ bottom:-14px; left:-14px; transform:scaleY(-1); }
+  .floral.br{ bottom:-14px; right:-14px; transform:scale(-1,-1); }
+
+  .ganesh{
+    width:150px;
+    height:auto;
+    margin:0 auto 6px;
+    display:block;
+    filter:drop-shadow(0 1px 1px rgba(0,0,0,0.12));
+  }
+  .credit{
+    font-size:9.5px;
+    color:var(--navy);
+    opacity:0.45;
+    margin-top:18px;
+    letter-spacing:0.3px;
+  }
+  .credit a{ color:inherit; }
+
+  .bell{
+    position:absolute;
+    top:36px;
+    width:34px;
+  }
+  .bell.left{ left:46px; }
+  .bell.right{ right:46px; }
+
+  .diya{
+    position:absolute;
+    width:78px;
+    height:auto;
+    bottom:10px;
+    filter:drop-shadow(0 2px 2px rgba(0,0,0,0.18));
+  }
+  .diya.left{ left:8px; }
+  .diya.right{ right:8px; transform:scaleX(-1); }
+
+  .eyebrow{
+    letter-spacing:2.5px;
+    font-family:'Cinzel', serif;
+    font-size:12.5px;
+    color:var(--navy);
+    font-weight:600;
+    margin:2px 0 10px;
+  }
+  .rule{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    margin:10px auto 14px;
+    max-width:280px;
+    color:var(--gold-dark);
+  }
+  .rule::before,.rule::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:linear-gradient(90deg, transparent, var(--gold-dark));
+  }
+  .rule::after{ background:linear-gradient(90deg, var(--gold-dark), transparent); }
+  .rule svg{ width:14px; height:14px; }
+
+  h1.title{
+    font-family:'Cinzel', serif;
+    color:var(--navy);
+    font-size:38px;
+    letter-spacing:3px;
+    margin:6px 0 0;
+    font-weight:600;
+  }
+  .script{
+    font-family:'Great Vibes', cursive;
+    color:var(--gold-dark);
+    font-size:44px;
+    margin:0 0 8px;
+    line-height:1;
+  }
+
+  .names-block{ margin:22px 0; }
+  .names{
+    font-family:'Cinzel', serif;
+    font-size:19px;
+    letter-spacing:1.5px;
+    color:var(--navy);
+    font-weight:600;
+    line-height:1.7;
+  }
+  .amp-row{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+    margin:6px auto;
+    max-width:260px;
+    color:var(--pink);
+    font-family:'Great Vibes', cursive;
+    font-size:26px;
+  }
+  .amp-row .line{
+    flex:1;
+    height:1px;
+    background:var(--gold-dark);
+    opacity:0.5;
+  }
+  .and-divider{
+    font-family:'Cinzel', serif;
+    letter-spacing:4px;
+    font-size:13px;
+    color:var(--gold-dark);
+    margin:14px 0;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .and-divider::before,.and-divider::after{
+    content:"";
+    flex:1;
+    border-top:1px dotted var(--gold-dark);
+  }
+
+  .details-row{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    margin:28px 0 6px;
+    text-align:center;
+  }
+  .details-row .col{ flex:1; }
+  .details-row svg{
+    width:26px;
+    height:26px;
+    color:var(--gold-dark);
+    margin-bottom:6px;
+  }
+  .details-row .label{
+    font-family:'Cinzel', serif;
+    font-size:12.5px;
+    letter-spacing:1px;
+    color:var(--navy);
+    font-weight:600;
+    line-height:1.5;
+  }
+  .details-row .sub{
+    font-size:13px;
+    color:var(--navy);
+    line-height:1.4;
+    margin-top:2px;
+  }
+  .divider-line{ width:1px; background:var(--gold-dark); opacity:0.4; margin:4px 0; }
+
+  .rsvp-heading{
+    font-family:'Cinzel', serif;
+    letter-spacing:3px;
+    font-size:16px;
+    color:var(--navy);
+    margin:34px 0 6px;
+    font-weight:600;
+  }
+  .rsvp-box{
+    border:1.5px solid var(--gold-dark);
+    border-radius:10px;
+    padding:8px;
+    background:rgba(255,255,255,0.5);
+    max-width:480px;
+    margin:0 auto;
+  }
+  .rsvp-box iframe{
+    width:100%;
+    min-height:520px;
+    border:none;
+    display:block;
+    background:transparent;
+  }
+  .rsvp-note{
+    font-size:12.5px;
+    color:var(--navy);
+    opacity:0.75;
+    margin-top:8px;
+  }
+
+  .closing{
+    margin-top:26px;
+    font-size:13px;
+    letter-spacing:1px;
+    font-family:'Cinzel', serif;
+    color:var(--navy);
+    font-weight:600;
+  }
+  .closing-script{
+    font-family:'Great Vibes', cursive;
+    color:var(--pink);
+    font-size:26px;
+    margin-top:6px;
+  }
+
+  @media (max-width:420px){
+    h1.title{ font-size:30px; }
+    .script{ font-size:34px; }
+    .names{ font-size:16px; }
+    .floral{ width:90px; height:90px; }
+    .details-row{ flex-direction:column; gap:16px; }
+    .divider-line{ display:none; }
+  }
+</style>
 </head>
 <body>
-  <main class="version-placeholder">
-    <article>
-      <p class="eyebrow">V2 · Engagement invitation</p>
-      <h1>Version Two</h1>
-      <p>A second design can be created here without changing Version One.</p>
-      <p>This folder is ready for a separate invitation design. Replace this file whenever the V2 design is complete.</p>
-      <nav class="version-nav" aria-label="Invitation versions">
-        <a class="outline-button" href="../?version=v1">View V1</a>
-        <a class="outline-button" href="../?version=v2">View V2</a>
-        <a class="outline-button" href="../?version=v3">View V3</a>
-      </nav>
-    </article>
-  </main>
+<div class="frame">
+  <div class="card">
+
+    <!-- mandala watermarks -->
+    <svg class="mandala left" viewBox="0 0 200 200"><g fill="none" stroke="#9a7a2e" stroke-width="1"><circle cx="100" cy="100" r="90"/><circle cx="100" cy="100" r="70"/><circle cx="100" cy="100" r="50"/><circle cx="100" cy="100" r="30"/><g>
+    <path d="M100 10 L100 190 M10 100 L190 100 M27 27 L173 173 M27 173 L173 27"/>
+    </g></g></svg>
+    <svg class="mandala right" viewBox="0 0 200 200"><g fill="none" stroke="#9a7a2e" stroke-width="1"><circle cx="100" cy="100" r="90"/><circle cx="100" cy="100" r="70"/><circle cx="100" cy="100" r="50"/><circle cx="100" cy="100" r="30"/><g>
+    <path d="M100 10 L100 190 M10 100 L190 100 M27 27 L173 173 M27 173 L173 27"/>
+    </g></g></svg>
+
+    <!-- corner florals -->
+    <svg class="floral tl" viewBox="0 0 120 120"><g>
+      <circle cx="30" cy="30" r="16" fill="#e39aa9"/>
+      <circle cx="46" cy="20" r="12" fill="#f2c1cd"/>
+      <circle cx="18" cy="48" r="10" fill="#2b3f73"/>
+      <circle cx="50" cy="46" r="9" fill="#c9a24a"/>
+      <circle cx="12" cy="20" r="8" fill="#f6e6c8"/>
+      <path d="M0 60 Q35 20 60 0" stroke="#c9a24a" stroke-width="2" fill="none"/>
+    </g></svg>
+    <svg class="floral tr" viewBox="0 0 120 120"><g>
+      <circle cx="30" cy="30" r="16" fill="#e39aa9"/>
+      <circle cx="46" cy="20" r="12" fill="#f2c1cd"/>
+      <circle cx="18" cy="48" r="10" fill="#2b3f73"/>
+      <circle cx="50" cy="46" r="9" fill="#c9a24a"/>
+      <circle cx="12" cy="20" r="8" fill="#f6e6c8"/>
+      <path d="M0 60 Q35 20 60 0" stroke="#c9a24a" stroke-width="2" fill="none"/>
+    </g></svg>
+    <svg class="floral bl" viewBox="0 0 120 120"><g>
+      <circle cx="30" cy="30" r="14" fill="#e39aa9"/>
+      <circle cx="44" cy="18" r="10" fill="#f2c1cd"/>
+      <circle cx="16" cy="44" r="9" fill="#2b3f73"/>
+      <circle cx="10" cy="16" r="7" fill="#f6e6c8"/>
+      <path d="M0 54 Q30 18 54 0" stroke="#c9a24a" stroke-width="2" fill="none"/>
+    </g></svg>
+    <svg class="floral br" viewBox="0 0 120 120"><g>
+      <circle cx="30" cy="30" r="14" fill="#e39aa9"/>
+      <circle cx="44" cy="18" r="10" fill="#f2c1cd"/>
+      <circle cx="16" cy="44" r="9" fill="#2b3f73"/>
+      <circle cx="10" cy="16" r="7" fill="#f6e6c8"/>
+      <path d="M0 54 Q30 18 54 0" stroke="#c9a24a" stroke-width="2" fill="none"/>
+    </g></svg>
+
+    <!-- hanging bells -->
+    <svg class="bell left" viewBox="0 0 40 100"><g fill="none" stroke="#b8892f" stroke-width="1.5">
+      <line x1="20" y1="0" x2="20" y2="18"/>
+      <circle cx="20" cy="20" r="2.5" fill="#c9a24a"/>
+      <path d="M10 22 Q20 18 30 22 L28 38 Q20 44 12 38 Z" fill="#d9b46a"/>
+      <line x1="20" y1="44" x2="20" y2="58"/>
+      <circle cx="20" cy="60" r="3" fill="#e39aa9"/>
+      <path d="M15 63 Q20 78 25 63 Z" fill="#e39aa9"/>
+    </g></svg>
+    <svg class="bell right" viewBox="0 0 40 100"><g fill="none" stroke="#b8892f" stroke-width="1.5">
+      <line x1="20" y1="0" x2="20" y2="18"/>
+      <circle cx="20" cy="20" r="2.5" fill="#c9a24a"/>
+      <path d="M10 22 Q20 18 30 22 L28 38 Q20 44 12 38 Z" fill="#d9b46a"/>
+      <line x1="20" y1="44" x2="20" y2="58"/>
+      <circle cx="20" cy="60" r="3" fill="#e39aa9"/>
+      <path d="M15 63 Q20 78 25 63 Z" fill="#e39aa9"/>
+    </g></svg>
+
+    <!-- diyas: real stock photos (Traditional Brass Diya Lamp by Muhammad Hamza khan, via Vecteezy, Free License, attribution required) -->
+    <img class="diya left" src="https://static.vecteezy.com/system/resources/previews/059/033/995/non_2x/traditional-brass-diya-lamp-free-png.png" alt="Traditional brass diya lamp">
+    <img class="diya right" src="https://static.vecteezy.com/system/resources/previews/059/033/995/non_2x/traditional-brass-diya-lamp-free-png.png" alt="Traditional brass diya lamp">
+
+    <!-- Ganesha illustration by Mahidul Islam, via Vecteezy (Free License, attribution required) -->
+    <img class="ganesh" src="https://static.vecteezy.com/system/resources/previews/049/882/247/non_2x/the-ganesh-sitting-on-lotus-flowers-free-png.png" alt="Lord Ganesha seated on a lotus">
+
+    <p class="eyebrow">With the blessings of our families</p>
+    <div class="rule"><svg viewBox="0 0 24 24" fill="#c9a24a"><circle cx="12" cy="12" r="4"/></svg></div>
+    <p class="eyebrow" style="letter-spacing:2px;">We joyfully invite you to celebrate the</p>
+
+    <h1 class="title">ENGAGEMENT</h1>
+    <div class="script">Celebration</div>
+
+    <div class="rule"><svg viewBox="0 0 24 24" fill="#e39aa9"><circle cx="12" cy="12" r="4"/></svg></div>
+
+    <div class="names-block">
+      <div class="names">SANDEEP NAGA VARMA INDUKURI</div>
+      <div class="amp-row"><span class="line"></span>&amp;<span class="line"></span></div>
+      <div class="names">AKHILA MANDHALA</div>
+
+      <div class="and-divider">AND</div>
+
+      <div class="names">ANAND VARMA INDUKURI</div>
+      <div class="amp-row"><span class="line"></span>&amp;<span class="line"></span></div>
+      <div class="names">YAMINI PRANEETHA</div>
+    </div>
+
+    <div class="details-row">
+      <div class="col">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+        <div class="label">WEDNESDAY<br>AUGUST 26, 2026</div>
+      </div>
+      <div class="divider-line"></div>
+      <div class="col">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        <div class="label">10:00 AM<br>ONWARDS</div>
+      </div>
+      <div class="divider-line"></div>
+      <div class="col">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.4"/></svg>
+        <div class="label">CRYSTAL BANQUET</div>
+        <div class="sub">6300 Independence Pkwy,<br>Unit B, Plano, TX 75023,<br>United States</div>
+      </div>
+    </div>
+
+    <p class="rsvp-heading">RSVP</p>
+    <div class="rsvp-box">
+      <!--
+        Replace the src below with your own Google Form's embed link.
+        In Google Forms: Send > Embed <> icon > copy the src URL from the iframe code.
+      -->
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfjzA1CecTggnlEptnCaKhr09cavFbbHGw-cOLbHXmWTZkXow/viewform?embedded=true">Loading RSVP form…</iframe>
+    </div>
+    <p class="rsvp-note">Kindly fill out the form above to RSVP</p>
+
+    <p class="closing">Your presence will make our day even more special</p>
+    <p class="closing-script">We look forward to celebrating with you!</p>
+
+    <p class="credit">Ganesha illustration by Mahidul Islam &amp; diya lamp by Muhammad Hamza khan, via <a href="https://www.vecteezy.com" target="_blank" rel="noopener">Vecteezy</a></p>
+
+  </div>
+</div>
 </body>
 </html>
