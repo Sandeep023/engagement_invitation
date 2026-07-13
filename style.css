@@ -78,7 +78,7 @@ a { color: inherit; }
   display: grid;
   place-items: center;
 }
-.nav-links { display: flex; gap: 1.8rem; }
+.nav-links { display: flex; gap: 1.8rem; padding-top: 1rem;}
 .nav-links a {
   text-decoration: none;
   text-transform: uppercase;
