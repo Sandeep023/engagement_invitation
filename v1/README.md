@@ -1,31 +1,58 @@
-# Engagement E‑vite
+# Versioned Engagement E-vite
 
-A responsive GitHub Pages invitation for:
+## Folder structure
 
-- Sandeep Naga Varma Indukuri & Akhila Mandhala
-- Anand Varma Indukuri & Yamini Praneetha
+```text
+engagement-evite-versioned/
+├── index.html
+├── assets/
+│   ├── style.css
+│   └── script.js
+├── v1/
+│   └── index.html
+├── v2/
+│   └── index.html
+└── v3/
+    └── index.html
+```
 
-## Publish with GitHub Pages
+## URLs after publishing
 
-1. Sign in to GitHub and create a new **public** repository, for example `engagement-evite`.
-2. Upload `index.html`, `style.css`, and `script.js` to the repository root.
-3. Open the repository’s **Settings**.
-4. Choose **Pages** in the left menu.
-5. Under **Build and deployment**, select **Deploy from a branch**.
-6. Select branch `main`, folder `/ (root)`, and click **Save**.
-7. Your invitation will appear at:
-   `https://YOUR-USERNAME.github.io/engagement-evite/`
+Assuming the repository is named `engagement-invitation`:
 
-## Customize
+- Main selector:
+  `https://YOUR-USERNAME.github.io/engagement-invitation/`
+- Version 1:
+  `https://YOUR-USERNAME.github.io/engagement-invitation/v1/`
+- Version 2:
+  `https://YOUR-USERNAME.github.io/engagement-invitation/v2/`
+- Version 3:
+  `https://YOUR-USERNAME.github.io/engagement-invitation/v3/`
 
-- Names and wording: edit `index.html`.
-- Colors: edit the variables at the top of `style.css`.
-- Countdown date: edit `data-event-date` in `index.html`.
-- RSVP link: replace the URL in the RSVP button.
-- Google Maps link: replace the Maps URL in the venue section.
+## Redirect using the main URL
 
-The current event time is configured for Central Daylight Time (`-05:00`).
+The root `index.html` accepts these formats:
 
-## RSVP form
+- `?version=v1`
+- `?version=v2`
+- `?version=v3`
+- `?v=1`
+- `?v=2`
+- `?v=3`
+- `#v1`
+- `#v2`
+- `#v3`
 
-The Google Form is embedded directly in the RSVP section of `index.html`.
+Example:
+
+`https://YOUR-USERNAME.github.io/engagement-invitation/?version=v1`
+
+This redirects to:
+
+`https://YOUR-USERNAME.github.io/engagement-invitation/v1/`
+
+## Editing versions
+
+Each design has its own `index.html`. Shared CSS and JavaScript are kept in `/assets`.
+
+Version 1 contains the current completed invitation with the embedded Google RSVP form. Version 2 and Version 3 are starter pages ready for separate designs.

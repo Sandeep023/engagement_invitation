@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#10265f">
+  <title>Version Two</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/style.css">
+  <style>
+    .version-placeholder {
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      padding: 2rem;
+      text-align: center;
+      color: white;
+      background:
+        linear-gradient(rgba(9,24,66,.88), rgba(13,34,82,.95)),
+        radial-gradient(circle at 50% 20%, #315294, transparent 46%),
+        #10265f;
+    }
+    .version-placeholder article {
+      width: min(720px, 100%);
+      padding: clamp(2.5rem, 8vw, 5rem);
+      border: 1px solid rgba(231,199,120,.55);
+      outline: 1px solid rgba(255,255,255,.12);
+      outline-offset: -12px;
+    }
+    .version-placeholder h1 {
+      margin: .4rem 0 1rem;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(3rem, 8vw, 6rem);
+      line-height: .95;
+    }
+    .version-placeholder p {
+      color: rgba(255,255,255,.76);
+    }
+    .version-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: .8rem;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <main class="version-placeholder">
+    <article>
+      <p class="eyebrow">V2 · Engagement invitation</p>
+      <h1>Version Two</h1>
+      <p>A second design can be created here without changing Version One.</p>
+      <p>This folder is ready for a separate invitation design. Replace this file whenever the V2 design is complete.</p>
+      <nav class="version-nav" aria-label="Invitation versions">
+        <a class="outline-button" href="../?version=v1">View V1</a>
+        <a class="outline-button" href="../?version=v2">View V2</a>
+        <a class="outline-button" href="../?version=v3">View V3</a>
+      </nav>
+    </article>
+  </main>
+</body>
+</html>
